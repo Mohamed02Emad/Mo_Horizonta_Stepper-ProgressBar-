@@ -12,5 +12,8 @@
 
         <attr name="selectedSpacerColor" format="color" />
         <attr name="notSelectedSpacerColor" format="color" />
+
+        <attr name="numberOfSteps" format="integer"
+            />
     </declare-styleable>
 </resources>

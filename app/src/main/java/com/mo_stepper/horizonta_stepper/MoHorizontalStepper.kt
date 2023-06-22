@@ -2,9 +2,7 @@ package com.mo_stepper.horizonta_stepper
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.View
+import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -64,13 +62,11 @@ class MoHorizontalStepper @JvmOverloads constructor(
             ContextCompat.getColor(context, R.color.black)
         )
 
-
-
         currentSelectedRingColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_currentSelectedRingColor,
             ContextCompat.getColor(context, R.color.teal_200)
         )
-
+        numberOfSteps = typedArray.getInt(R.styleable.MoHorizontalStepper_numberOfSteps, 4)
 
         selectedSpacerColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_selectedSpacerColor,
@@ -189,8 +185,15 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
     fun getNumberOfSteps(): Int = numberOfSteps
 
+    /*
+    returns null if doesnot exist
+     */
     fun getCurrentFragment(): Int? {
-        return menu?.getItem(currentStepIndex)?.itemId
+        return try {
+            menu?.getItem(currentStepIndex)?.itemId
+        }catch (_:java.lang.Exception){
+            null
+        }
     }
 
     fun isLastStep(): Boolean = currentStepIndex == stepViews.size - 1
