@@ -141,7 +141,7 @@ if number of elements are diffrent that number of steps you will get null as a r
 
 ```kotlin
         stepper.stepClickListener={stepIndex ->
-            val fragmentId = stepper.getFragmentByIndex(stepIndex)
+            val fragmentId = stepper.getFragmentByIndex(stepIndex-1)
             fragmentId?.let {destination ->
                 val navController = findNavController()
                 navController.navigate(destination, null, null, null)
