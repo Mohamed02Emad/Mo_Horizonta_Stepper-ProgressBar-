@@ -9,7 +9,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_gravity="center"
-        android:background="@color/red"
+        android:background="@color/stepper_red"
         app:shapeAppearance="@style/roundedImageViewRounded" />
 
     <com.google.android.material.imageview.ShapeableImageView

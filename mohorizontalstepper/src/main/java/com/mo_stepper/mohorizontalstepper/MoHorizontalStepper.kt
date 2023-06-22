@@ -43,41 +43,41 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
         selectedTextColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_selectedTextColor,
-            ContextCompat.getColor(context, R.color.white)
+            ContextCompat.getColor(context, R.color.stepper_white)
         )
         selectedBackgroundColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_selectedBackgroundColor,
-            ContextCompat.getColor(context, R.color.red)
+            ContextCompat.getColor(context, R.color.stepper_red)
         )
 
 
         notSelectedBackgroundColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_notSelectedBackgroundColor,
-            ContextCompat.getColor(context, R.color.white)
+            ContextCompat.getColor(context, R.color.stepper_white)
         )
         notSelectedRingColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_notSelectedRingColor,
-            ContextCompat.getColor(context, R.color.red)
+            ContextCompat.getColor(context, R.color.stepper_red)
         )
         notSelectedTextColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_notSelectedTextColor,
-            ContextCompat.getColor(context, R.color.black)
+            ContextCompat.getColor(context, R.color.stepper_black)
         )
 
         currentSelectedRingColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_currentSelectedRingColor,
-            ContextCompat.getColor(context, R.color.teal_200)
+            ContextCompat.getColor(context, R.color.stepper_teal_200)
         )
         numberOfSteps = typedArray.getInt(R.styleable.MoHorizontalStepper_numberOfSteps, 4)
 
         selectedSpacerColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_selectedSpacerColor,
-            ContextCompat.getColor(context, R.color.red)
+            ContextCompat.getColor(context, R.color.stepper_red)
         )
 
         notSelectedSpacerColor = typedArray.getColor(
             R.styleable.MoHorizontalStepper_notSelectedSpacerColor,
-            ContextCompat.getColor(context, R.color.black)
+            ContextCompat.getColor(context, R.color.stepper_black)
         )
 
         typedArray.recycle()
