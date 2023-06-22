@@ -1,4 +1,23 @@
 # Mo Horizontal Stepper (not done yet)
+
+to use it make sure to include this to your project:
+
+Add it in your root build.gradle 
+```gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+ ```
+
+```gradle
+dependencies {
+	        implementation 'com.github.Mohamed02Emad:Mo_Horizonta_Stepper:1.0.0'
+	}
+ ```
+
 # a horizontal stepper with three modes of selection as shown 
 https://github.com/Mohamed02Emad/Mo_Horizonta_Stepper/assets/81470639/0473c38a-37dd-403c-9de4-4ab4760e633a
 
