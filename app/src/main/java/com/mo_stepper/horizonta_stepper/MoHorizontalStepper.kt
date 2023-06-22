@@ -2,7 +2,9 @@ package com.mo_stepper.horizonta_stepper
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -191,7 +193,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
     fun getCurrentFragment(): Int? {
         return try {
             menu?.getItem(currentStepIndex)?.itemId
-        }catch (_:java.lang.Exception){
+        } catch (_: java.lang.Exception) {
             null
         }
     }
@@ -318,6 +320,14 @@ class MoHorizontalStepper @JvmOverloads constructor(
         stepViews.clear()
         spaceViews.clear()
         initStepper()
+    }
+
+    fun getFragmentByIndex(stepIndex: Int): Int? {
+        return try {
+            menu?.getItem(stepIndex)?.itemId
+        } catch (_: java.lang.Exception) {
+            null
+        }
     }
 
     /*
