@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.view.allViews
 
 class MoHorizontalStepper @JvmOverloads constructor(
     context: Context,
@@ -34,7 +35,6 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
     private fun initStepper() {
         for (i in 0 until numberOfSteps) {
-
             val stepView = createStepView(i + 1)
             stepViews.add(stepView)
             addView(stepView)
@@ -101,7 +101,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
     fun setNumberOfSteps(number: Int) {
         numberOfSteps = number
-        invalidate()
+        reInvalidate()
     }
 
     fun setStepperMode(stepperMode: MoStepperMode) {
@@ -198,6 +198,13 @@ class MoHorizontalStepper @JvmOverloads constructor(
         }
     }
 
+
+    private fun reInvalidate() {
+        removeAllViews()
+        stepViews.clear()
+        spaceViews.clear()
+        initStepper()
+    }
 
     /*
     enum for modes
