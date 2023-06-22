@@ -1,4 +1,4 @@
-# Mo Horizontal Stepper (not done yet)
+# Mo Horizontal Stepper
 
 to use it make sure to include this to your project:
 
