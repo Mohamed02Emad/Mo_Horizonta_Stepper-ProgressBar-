@@ -8,6 +8,7 @@
     <color name="green">#3A9C26</color>
     <color name="currentSelected">#724D93</color>
     <color name="red">#C2341C</color>
+    <color name="white">#FFF</color>
 
     <color name="stepper_selected">#FFFFFF</color>
     <color name="my_background">#FFF</color>
