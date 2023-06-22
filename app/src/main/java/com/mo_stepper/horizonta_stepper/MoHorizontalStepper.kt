@@ -33,6 +33,9 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
     private var currentSelectedRingColor: Int = 0
 
+    private var selectedSpacerColor: Int = 0
+    private var notSelectedSpacerColor: Int = 0
+
     init {
         selectedTextColor = ContextCompat.getColor(context, R.color.stepper_selected)
         selectedBackgroundColor = ContextCompat.getColor(context, R.color.red)
@@ -42,6 +45,9 @@ class MoHorizontalStepper @JvmOverloads constructor(
         notSelectedTextColor = ContextCompat.getColor(context, R.color.black)
 
         currentSelectedRingColor = ContextCompat.getColor(context, R.color.teal_200)
+
+        selectedSpacerColor = ContextCompat.getColor(context, R.color.red)
+        notSelectedSpacerColor = ContextCompat.getColor(context, R.color.black)
 
         orientation = HORIZONTAL
         stepClickListener = { stepIndex ->
@@ -133,6 +139,11 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
     fun setCurrentSelectedRingColor(color: Int) {
         currentSelectedRingColor = ContextCompat.getColor(context, color)
+        updateStepViews()
+    }
+
+    fun setSpacerColor(color: Int) {
+        selectedSpacerColor = ContextCompat.getColor(context, color)
         updateStepViews()
     }
 
@@ -253,15 +264,10 @@ class MoHorizontalStepper @JvmOverloads constructor(
     private fun setSpaceForAllModes(index: Int, space: View) {
         if (index < currentStepIndex - 1) {
             //selected
-            space.setBackgroundColor(ContextCompat.getColor(context, R.color.red))
+            space.setBackgroundColor(selectedSpacerColor)
         } else {
             //not selected
-            space.setBackgroundColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.control_theme_color
-                )
-            )
+            space.setBackgroundColor(notSelectedSpacerColor)
         }
     }
 
