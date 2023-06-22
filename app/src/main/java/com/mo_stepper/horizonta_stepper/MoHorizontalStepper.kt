@@ -142,8 +142,12 @@ class MoHorizontalStepper @JvmOverloads constructor(
         updateStepViews()
     }
 
-    fun setSpacerColor(color: Int) {
+    fun setSelectedSpacerColor(color: Int) {
         selectedSpacerColor = ContextCompat.getColor(context, color)
+        updateStepViews()
+    }
+    fun setNotSelectedSpacerColor(color: Int) {
+        notSelectedSpacerColor = ContextCompat.getColor(context, color)
         updateStepViews()
     }
 
