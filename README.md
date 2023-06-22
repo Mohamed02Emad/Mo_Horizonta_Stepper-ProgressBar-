@@ -129,7 +129,9 @@ if number of elements are diffrent that number of steps you will get null as a r
 
 ```kotlin
        val stepper = findViewById<MoHorizontalStepper>(R.id.stepper)
-       val myMenu = menuInflater.inflate(R.menu.menu_main, menu)
+       val navHostFragment = findViewById<FragmentContainerView>(R.id.frame_stepper)
+       val myMenu = = MenuBuilder(this)
+        menuInflater.inflate(R.menu.menu, myMenu)
         stepper.apply {
             setStepperMode(MoHorizontalStepper.MoStepperMode.SELECT_PREVIOUS_AND_CURRENT)
             setNumberOfSteps(make sure they are same number as your menu items)
@@ -141,9 +143,9 @@ if number of elements are diffrent that number of steps you will get null as a r
 
 ```kotlin
         stepper.stepClickListener={stepIndex ->
-            val fragmentId = stepper.getFragmentByIndex(stepIndex)
+            val fragmentId = stepper.getFragmentByIndex(stepIndex-1)
             fragmentId?.let {destination ->
-                val navController = findNavController()
+                val navController = navHostFragment.findNavController()
                 navController.navigate(destination, null, null, null)
                 stepper.setCurrentStep(stepIndex)
             }
