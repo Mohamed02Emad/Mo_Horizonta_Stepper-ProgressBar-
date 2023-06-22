@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val stepper = binding.stepper
         binding.et.doAfterTextChanged {
             try {
-                val numberOfSteps = if (it.toString().toInt() > 6) 6 else it.toString().toInt()
+                val numberOfSteps = if (it.toString().toInt() > 7) 7 else it.toString().toInt()
                 stepper.setNumberOfSteps(numberOfSteps)
                 Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             } catch (_: Exception) {
@@ -39,5 +39,18 @@ class MainActivity : AppCompatActivity() {
                 stepper.setStepperMode(MoHorizontalStepper.MoStepperMode.SELECT_PREVIOUS_AND_CURRENT)
             }
         }
+
+        binding.apply {
+            btnRed.setOnClickListener {
+                stepper.setSelectedBackgroundColor(R.color.red)
+            }
+            btnGreen.setOnClickListener {
+                stepper.setSelectedBackgroundColor(R.color.green)
+            }
+            btnYellow.setOnClickListener {
+                stepper.setSelectedBackgroundColor(R.color.yellow)
+            }
+        }
+
     }
 }
