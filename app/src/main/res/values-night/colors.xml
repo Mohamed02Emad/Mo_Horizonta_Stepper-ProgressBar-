@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="stepper_selected">#FFFFFF</color>
+    <color name="stepper_not_selected">#FFFFFF</color>
+    <color name="control_theme_color">@color/white</color>
+    <color name="my_background">#000</color>
+
+</resources>
