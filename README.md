@@ -129,7 +129,9 @@ if number of elements are diffrent that number of steps you will get null as a r
 
 ```kotlin
        val stepper = findViewById<MoHorizontalStepper>(R.id.stepper)
-       val myMenu = menuInflater.inflate(R.menu.menu_main, menu)
+       val myMenu = = MenuBuilder(this)
+        menuInflater.inflate(R.menu.menu, myMenu)
+	
         stepper.apply {
             setStepperMode(MoHorizontalStepper.MoStepperMode.SELECT_PREVIOUS_AND_CURRENT)
             setNumberOfSteps(make sure they are same number as your menu items)
