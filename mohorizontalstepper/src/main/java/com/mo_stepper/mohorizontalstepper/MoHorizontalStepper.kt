@@ -1,4 +1,4 @@
-package com.mo_stepper.horizonta_stepper
+package com.mo_stepper.mohorizontalstepper
 
 import android.content.Context
 import android.util.AttributeSet
