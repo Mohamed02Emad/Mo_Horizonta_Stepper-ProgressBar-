@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Mo_Horizonta_Stepper"
 include ':app'
+include ':app:stepper1'
+include ':mohorizontalstepper'
