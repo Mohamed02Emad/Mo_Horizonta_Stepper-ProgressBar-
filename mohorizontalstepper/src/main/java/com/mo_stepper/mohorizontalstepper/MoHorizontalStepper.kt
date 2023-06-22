@@ -2,6 +2,7 @@ package com.mo_stepper.mohorizontalstepper
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+
 
 class MoHorizontalStepper @JvmOverloads constructor(
     context: Context,
@@ -91,16 +93,19 @@ class MoHorizontalStepper @JvmOverloads constructor(
     private fun initStepper() {
         for (i in 0 until numberOfSteps) {
             val stepView = createStepView(i + 1)
-            stepViews.add(stepView)
+                stepViews.add(stepView)
+            Log.d("mohamed", "initStepper: 2 ")
             addView(stepView)
 
             if (i != numberOfSteps - 1) {
+                Log.d("mohamed", "initStepper: 3 ")
                 val space = createSpace()
                 spaceViews.add(space)
                 addView(space)
             }
 
         }
+
         updateStepViews()
     }
 
@@ -199,6 +204,15 @@ class MoHorizontalStepper @JvmOverloads constructor(
     }
 
     fun isLastStep(): Boolean = currentStepIndex == stepViews.size - 1
+
+    fun getFragmentByIndex(stepIndex: Int): Int? {
+        return try {
+            menu?.getItem(stepIndex)?.itemId
+        } catch (_: java.lang.Exception) {
+            null
+        }
+    }
+
 
     /*
     methods for shaping and coloring
@@ -322,13 +336,6 @@ class MoHorizontalStepper @JvmOverloads constructor(
         initStepper()
     }
 
-    fun getFragmentByIndex(stepIndex: Int): Int? {
-        return try {
-            menu?.getItem(stepIndex)?.itemId
-        } catch (_: java.lang.Exception) {
-            null
-        }
-    }
 
     /*
     enum for modes

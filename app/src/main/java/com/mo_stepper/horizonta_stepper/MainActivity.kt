@@ -7,6 +7,7 @@ import androidx.core.widget.doAfterTextChanged
 import com.mo_stepper.horizonta_stepper.databinding.ActivityMainBinding
 import com.mo_stepper.mohorizontalstepper.MoHorizontalStepper
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
