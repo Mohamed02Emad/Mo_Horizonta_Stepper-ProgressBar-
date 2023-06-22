@@ -27,21 +27,27 @@ class MoHorizontalStepper @JvmOverloads constructor(
     private var selectedTextColor: Int = 0
     private var selectedBackgroundColor: Int = 0
 
-    private var notSelectedInnerColor: Int = 0
+    private var notSelectedBackgroundColor: Int = 0
     private var notSelectedTextColor: Int = 0
     private var notSelectedRingColor: Int = 0
 
     private var currentSelectedRingColor: Int = 0
 
+    private var selectedSpacerColor: Int = 0
+    private var notSelectedSpacerColor: Int = 0
+
     init {
         selectedTextColor = ContextCompat.getColor(context, R.color.stepper_selected)
         selectedBackgroundColor = ContextCompat.getColor(context, R.color.red)
 
-        notSelectedInnerColor = ContextCompat.getColor(context, R.color.white)
+        notSelectedBackgroundColor = ContextCompat.getColor(context, R.color.white)
         notSelectedRingColor = ContextCompat.getColor(context, R.color.red)
         notSelectedTextColor = ContextCompat.getColor(context, R.color.black)
 
         currentSelectedRingColor = ContextCompat.getColor(context, R.color.teal_200)
+
+        selectedSpacerColor = ContextCompat.getColor(context, R.color.red)
+        notSelectedSpacerColor = ContextCompat.getColor(context, R.color.black)
 
         orientation = HORIZONTAL
         stepClickListener = { stepIndex ->
@@ -116,8 +122,8 @@ class MoHorizontalStepper @JvmOverloads constructor(
         updateStepViews()
     }
 
-    fun setNotSelectedInnerColor(color: Int) {
-        notSelectedInnerColor = ContextCompat.getColor(context, color)
+    fun setNotSelectedBackgroundColor(color: Int) {
+        notSelectedBackgroundColor = ContextCompat.getColor(context, color)
         updateStepViews()
     }
 
@@ -133,6 +139,15 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
     fun setCurrentSelectedRingColor(color: Int) {
         currentSelectedRingColor = ContextCompat.getColor(context, color)
+        updateStepViews()
+    }
+
+    fun setSelectedSpacerColor(color: Int) {
+        selectedSpacerColor = ContextCompat.getColor(context, color)
+        updateStepViews()
+    }
+    fun setNotSelectedSpacerColor(color: Int) {
+        notSelectedSpacerColor = ContextCompat.getColor(context, color)
         updateStepViews()
     }
 
@@ -186,7 +201,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
         } else {
             //not selected
             view.visibility = View.VISIBLE
-            view.setBackgroundColor(notSelectedInnerColor)
+            view.setBackgroundColor(notSelectedBackgroundColor)
             mostBackView.setBackgroundColor(notSelectedRingColor)
             text.setTextColor(notSelectedTextColor)
         }
@@ -204,13 +219,13 @@ class MoHorizontalStepper @JvmOverloads constructor(
             text.setTextColor(selectedTextColor)
         } else if (index == currentStepIndex - 1) {
             view.visibility = View.VISIBLE
-            view.setBackgroundColor(notSelectedInnerColor)
+            view.setBackgroundColor(notSelectedBackgroundColor)
             mostBackView.setBackgroundColor(currentSelectedRingColor)
             text.setTextColor(notSelectedTextColor)
         } else {
             //not selected
             view.visibility = View.VISIBLE
-            view.setBackgroundColor(notSelectedInnerColor)
+            view.setBackgroundColor(notSelectedBackgroundColor)
             mostBackView.setBackgroundColor(notSelectedRingColor)
             text.setTextColor(notSelectedTextColor)
         }
@@ -229,7 +244,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
         } else {
             //not selected
             view.visibility = View.VISIBLE
-            view.setBackgroundColor(notSelectedInnerColor)
+            view.setBackgroundColor(notSelectedBackgroundColor)
             mostBackView.setBackgroundColor(notSelectedRingColor)
             text.setTextColor(notSelectedTextColor)
         }
@@ -253,15 +268,10 @@ class MoHorizontalStepper @JvmOverloads constructor(
     private fun setSpaceForAllModes(index: Int, space: View) {
         if (index < currentStepIndex - 1) {
             //selected
-            space.setBackgroundColor(ContextCompat.getColor(context, R.color.red))
+            space.setBackgroundColor(selectedSpacerColor)
         } else {
             //not selected
-            space.setBackgroundColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.control_theme_color
-                )
-            )
+            space.setBackgroundColor(notSelectedSpacerColor)
         }
     }
 
