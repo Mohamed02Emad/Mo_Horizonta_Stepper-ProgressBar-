@@ -93,7 +93,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
     }
 
     fun setNumberOfSteps(number: Int) {
-        numberOfSteps = number
+        numberOfSteps = if (number > 7) 7 else number
         reInvalidate()
     }
 

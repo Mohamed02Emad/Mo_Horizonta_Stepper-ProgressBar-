@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val stepper = binding.stepper
         binding.et.doAfterTextChanged {
             try {
-                val numberOfSteps = if (it.toString().toInt() > 7) 7 else it.toString().toInt()
+                val numberOfSteps = it.toString().toInt()
                 stepper.setNumberOfSteps(numberOfSteps)
                 Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
             } catch (_: Exception) {
