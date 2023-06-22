@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.view.allViews
 
 class MoHorizontalStepper @JvmOverloads constructor(
     context: Context,
@@ -106,6 +105,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
 
     fun setStepperMode(stepperMode: MoStepperMode) {
         this.stepperMode = stepperMode
+        updateStepViews()
     }
 
     fun setNavigationMenu(menu: Menu) {
@@ -197,7 +197,6 @@ class MoHorizontalStepper @JvmOverloads constructor(
             )
         }
     }
-
 
     private fun reInvalidate() {
         removeAllViews()
