@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MoHorizontalStepper">
+        <attr name="selectedTextColor" format="color" />
+        <attr name="selectedBackgroundColor" format="color" />
+
+        <attr name="notSelectedBackgroundColor" format="color" />
+        <attr name="notSelectedTextColor" format="color" />
+        <attr name="notSelectedRingColor" format="color" />
+
+        <attr name="currentSelectedRingColor" format="color" />
+
+        <attr name="selectedSpacerColor" format="color" />
+        <attr name="notSelectedSpacerColor" format="color" />
+
+        <attr name="numberOfSteps" format="integer"
+            />
+    </declare-styleable>
+</resources>
