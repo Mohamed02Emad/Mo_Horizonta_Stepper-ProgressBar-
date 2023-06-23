@@ -1,5 +1,7 @@
 # Mo Horizontal Stepper
 
+# setup
+
 to use it make sure to include this to your project:
 
 Add it in your root build.gradle 
@@ -12,62 +14,77 @@ allprojects {
 	}
  ```
 
+
 ```gradle
 dependencies {
 	        implementation 'com.github.Mohamed02Emad:Mo_Horizonta_Stepper:1.0.4'
 	}
  ```
 
-# a horizontal stepper with three modes of selection as shown 
+
+# Info
+
+modes :
+
 https://github.com/Mohamed02Emad/Mo_Horizonta_Stepper/assets/81470639/0473c38a-37dd-403c-9de4-4ab4760e633a
 
-default mode is SELECT_CURRENT
-you can change the mode using `setStepperMode(MoHorizontalStepper.MoStepperMode.SELECT_CURRENT)`   
+default mode is `SELECT_CURRENT`
+* you can change the mode using 
+
+`setStepperMode(MoHorizontalStepper.MoStepperMode.SELECT_CURRENT)`   
 
 available modes (can only chance them from code)
 
 | Modes                                            | Usage                                                         |
 | ------------------------------------------------ | --------------------------------------------------------------|
 | `SELECT_CURRENT`                                 | MoHorizontalStepper.MoStepperMode.SELECT_CURRENT              |
-| `SELECT_PREVIOUS`                                | MoHorizontalStepper.MoStepperMode.SELECT_CURRENT              |
+| `SELECT_PREVIOUS`                                | MoHorizontalStepper.MoStepperMode.SELECT_PREVIOUS             |
 | `SELECT_PREVIOUS_AND_CURRENT`                    | MoHorizontalStepper.MoStepperMode.SELECT_PREVIOUS_AND_CURRENT |
 
 -------------------------------------------------------------------------------------------------------------------------
+
+steps :
 
 you can change number of steps (max is 7)
 
 https://github.com/Mohamed02Emad/Mo_Horizonta_Stepper/assets/81470639/92e4bc7f-461b-4e10-8268-4428c5599582
 
-default number is 4 steps but you can change it using `setNumberOfSteps(numberOfSteps)`
+default number is 4 steps but you can change it using `setNumberOfSteps(numberOfSteps)` or from xml 
 
-colors are adjustable too
+colors :
 
 https://github.com/Mohamed02Emad/Mo_Horizonta_Stepper/assets/81470639/7f204dd0-5d12-4555-bba1-4baf3b49112d
 
-# here are color attributs
+each color name is in this image
+
 ![colornames](https://github.com/Mohamed02Emad/Mo_Horizonta_Stepper/assets/81470639/c2662f99-68a1-443a-8fa0-5461876ea74d)
 
-an example of changing selected text color to red
-`setSelectedTextColor(R.drawable.red)`    
+* an example of changing selected text color to red
+`setSelectedTextColor(R.color.red)`    
+
+methods from code :
 
 ## table of public methods to use
-| Methods                                          | Rwturn Type                                                  | Default               |
-| ------------------------------------------------ | ------------------------------------------------------------ | --------------------- |
-| `moveToPreviousStep`                             | Any                                                          | --                    |
-| `moveToNextStep`                                 | Any                                                          | --                    |
-| `setStepperMode`                                 | Any                                                          | SELECT_CURRENT        |
-| `setCurrentStep`                                 | Any                                                          | 4                     |
-| `setSelectedTextColor`                           | Any                                                          | white                 |
-| `setSelectedBackgroundColor`                     | Any                                                          | red                   |
-| `setNotSelectedBackgroundColor`                  | Any                                                          | white                 |
-| `setNotSelectedTextColor`                        | Any                                                          | black                 |
-| `setNotSelectedRingColor`                        | Any                                                          | red                   |
-| `setCurrentSelectedRingColor`                    | Any                                                          | teel                  |
-| `setSelectedSpacerColor`                         | Any                                                          | red                   |
-| `setNotSelectedSpacerColor`                      | Any                                                          | black                 |
-| `setNumberOfSteps`                               | Integer                                                      | 4                     |
-| `getNumberOfSteps`                               | integer                                                      | 4                     |
-| `isLastStep`                                     | Boalean                                                      | --                    |
+| Methods                           | Return Type           | Parameters            |  Default          | description                                     |
+| --------------------------------- | --------------------- | --------------------- | ----------------- | ----------------------------------------------- |
+| `moveToPreviousStep`              | Any                   | --                    |  --               | moves the stepper to the previous step          |
+| `moveToNextStep`                  | Any                   | --                    |  --               | moves the stepper to the next step              |
+| `setStepperMode`                  | Any                   | MoStepperMode         |  SELECT_CURRENT   | change stepper mode to one of the above         |
+| `setCurrentStep`                  | Any                   | Integer               |  4                | move stepper to this exact step                 |
+| `setSelectedTextColor`            | Any                   | Integer               |  white            | takes `R.colors.color` to set mentioned color   |
+| `setSelectedBackgroundColor`      | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color   |
+| `setNotSelectedBackgroundColor`   | Any                   | Integer               |  white            | takes `R.colors.color` to set mentioned color   |
+| `setNotSelectedTextColor`         | Any                   | Integer               |  black            | takes `R.colors.color` to set mentioned color   |
+| `setNotSelectedRingColor`         | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color   |
+| `setCurrentSelectedRingColor`     | Any                   | Integer               |  teal             | takes `R.colors.color` to set mentioned color   |
+| `setSelectedSpacerColor`          | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color   |
+| `setNotSelectedSpacerColor`       | Any                   | Integer               |  black            | takes `R.colors.color` to set mentioned color   |
+| `setNumberOfSteps`                | Integer               | Integer               |  4                | set number of steps in the stepper              |
+| `getNumberOfSteps`                | integer               | --                    |  4                | return total number of steps in the stepper     |
+| `isLastStep`                      | Boalean               | --                    |  --               | return true if last step is selected else false |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # usage 
 
@@ -79,7 +96,7 @@ paste this to your xml
         android:layout_height="wrap_content" />
 ```
 
-now you need to access this stepper from your code and set it's attributes
+now you need to access this stepper from your code and set it's attributes 
 
 ```kotlin
        val stepper = findViewById<MoHorizontalStepper>(R.id.stepper)
@@ -93,7 +110,7 @@ now you need to access this stepper from your code and set it's attributes
         }
 ```
 
-or you can access some attributes from your xml (those are all attributes that can be changed from xml)
+or you can access some attributes from your xml ( here are attributes that can be changed from xml )
 
 ```xml
        <com.mo_stepper.horizonta_stepper.MoHorizontalStepper
@@ -111,7 +128,7 @@ or you can access some attributes from your xml (those are all attributes that c
         app:numberOfSteps="" />
 ```
 
-## How to use it to navigate
+## use it to navigate
 
 1- create navhost fragment with navGraph
 
@@ -151,3 +168,14 @@ if number of elements are diffrent that number of steps you will get null as a r
             }
         }
 ```
+
+# Notes
+
+1- if you used `moveToNextStep` or `moveToPreviousStep` you have to navigate manualy after that
+
+2- if you are using the `MoStepperMode.SELECT_PREVIOUS` mode , there is an additional color called `currentSelected` which indicates the current step color 
+and you can change it using `setCurrentSelectedRingColor(R.colors.color)`
+
+3- currently steps have fixed size , I'll fix it in the next release
+
+# have fun
