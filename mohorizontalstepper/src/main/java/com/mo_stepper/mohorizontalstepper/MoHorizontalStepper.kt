@@ -85,7 +85,6 @@ class MoHorizontalStepper @JvmOverloads constructor(
         typedArray.recycle()
         orientation = HORIZONTAL
         stepClickListener = { stepIndex ->
-            setCurrentStep(stepIndex)
         }
         initStepper()
     }
@@ -332,6 +331,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
         val txt = stepView.findViewById<TextView>(R.id.tv_number)
         txt.text = stepNumber.toString()
         stepView.setOnClickListener {
+            setCurrentStep(stepNumber)
             stepClickListener?.invoke(stepNumber)
         }
         return stepView
