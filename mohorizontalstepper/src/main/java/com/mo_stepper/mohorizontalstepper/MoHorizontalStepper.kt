@@ -202,7 +202,9 @@ class MoHorizontalStepper @JvmOverloads constructor(
         }
     }
 
-    fun isLastStep(): Boolean = currentStepIndex == stepViews.size - 1
+    fun isLastStep(): Boolean = currentStepIndex == stepViews.size
+
+    fun isFirstStep(): Boolean = currentStepIndex == 1
 
     fun getFragmentByIndex(stepIndex: Int): Int? {
         return try {
