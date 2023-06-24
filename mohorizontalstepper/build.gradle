@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 group = 'Mohamed02Emad'
-version = "1.0.4"
+version = "1.0.5"
 
 android {
     namespace 'com.mo_stepper.mohorizontalstepper'
@@ -51,7 +51,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.Mohamed02Emad'
             artifactId = 'mo-horizontal-stepper'
-            version = '1.0.4'
+            version = '1.0.5'
 
             afterEvaluate {
                 from components.release
