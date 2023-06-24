@@ -93,7 +93,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
     private fun initStepper() {
         for (i in 0 until numberOfSteps) {
             val stepView = createStepView(i + 1)
-                stepViews.add(stepView)
+            stepViews.add(stepView)
             Log.d("mohamed", "initStepper: 2 ")
             addView(stepView)
 
@@ -213,6 +213,24 @@ class MoHorizontalStepper @JvmOverloads constructor(
         }
     }
 
+    fun getPreviousFragment(): Int? =
+        if (currentStepIndex == 1) {
+            null
+        } else {
+            menu?.getItem(currentStepIndex - 1)?.itemId
+        }
+
+
+    fun getNextFragment(): Int? =
+        if (currentStepIndex == stepViews.size) {
+            null
+        } else {
+            menu?.getItem(currentStepIndex + 1)?.itemId
+        }
+
+    fun getCurrentStepIndex(): Int {
+        return currentStepIndex
+    }
 
     /*
     methods for shaping and coloring
