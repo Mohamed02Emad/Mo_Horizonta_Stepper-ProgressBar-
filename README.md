@@ -65,25 +65,29 @@ each color name is in this image
 methods from code :
 
 ## table of public methods to use
-| Methods                           | Return Type           | Parameters            |  Default          | description                                     |
-| --------------------------------- | --------------------- | --------------------- | ----------------- | ----------------------------------------------- |
-| `moveToPreviousStep`              | Any                   | --                    |  --               | moves the stepper to the previous step          |
-| `moveToNextStep`                  | Any                   | --                    |  --               | moves the stepper to the next step              |
-| `setStepperMode`                  | Any                   | MoStepperMode         |  SELECT_CURRENT   | change stepper mode to one of the above         |
-| `setCurrentStep`                  | Any                   | Integer               |  4                | move stepper to this exact step                 |
-| `setSelectedTextColor`            | Any                   | Integer               |  white            | takes `R.colors.color` to set mentioned color   |
-| `setSelectedBackgroundColor`      | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color   |
-| `setNotSelectedBackgroundColor`   | Any                   | Integer               |  white            | takes `R.colors.color` to set mentioned color   |
-| `setNotSelectedTextColor`         | Any                   | Integer               |  black            | takes `R.colors.color` to set mentioned color   |
-| `setNotSelectedRingColor`         | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color   |
-| `setCurrentSelectedRingColor`     | Any                   | Integer               |  teal             | takes `R.colors.color` to set mentioned color   |
-| `setSelectedSpacerColor`          | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color   |
-| `setNotSelectedSpacerColor`       | Any                   | Integer               |  black            | takes `R.colors.color` to set mentioned color   |
-| `setNumberOfSteps`                | Integer               | Integer               |  4                | set number of steps in the stepper              |
-| `getNumberOfSteps`                | integer               | --                    |  4                | return total number of steps in the stepper     |
-| `isLastStep`                      | Boalean               | --                    |  --               | return true if last step is selected else false |
+| Methods                           | Return Type           | Parameters            |  Default          | description                                      |
+| --------------------------------- | --------------------- | --------------------- | ----------------- | ------------------------------------------------ |
+| `moveToPreviousStep`              | Any                   | --                    |  --               | moves the stepper to the previous step           |
+| `moveToNextStep`                  | Any                   | --                    |  --               | moves the stepper to the next step               |
+| `setStepperMode`                  | Any                   | MoStepperMode         |  SELECT_CURRENT   | change stepper mode to one of the above          |
+| `setCurrentStep`                  | Any                   | Integer               |  4                | move stepper to this exact step                  |
+| `setSelectedTextColor`            | Any                   | Integer               |  white            | takes `R.colors.color` to set mentioned color    |
+| `setSelectedBackgroundColor`      | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color    |
+| `setNotSelectedBackgroundColor`   | Any                   | Integer               |  white            | takes `R.colors.color` to set mentioned color    |
+| `setNotSelectedTextColor`         | Any                   | Integer               |  black            | takes `R.colors.color` to set mentioned color    |
+| `setNotSelectedRingColor`         | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color    |
+| `setCurrentSelectedRingColor`     | Any                   | Integer               |  teal             | takes `R.colors.color` to set mentioned color    |
+| `setSelectedSpacerColor`          | Any                   | Integer               |  red              | takes `R.colors.color` to set mentioned color    |
+| `setNotSelectedSpacerColor`       | Any                   | Integer               |  black            | takes `R.colors.color` to set mentioned color    |
+| `getPreviousFragment`             | Integer               | --                    |  --               | return id of previous fragment, null if no prev  |
+| `getNextFragment`                 | Integer               | --                    |  --               | return id of next fragment, null if no next      |
+| `getCurrentStepIndex`             | Integer               | --                    |  --               | return the index of current step                 |
+| `setNumberOfSteps`                | Integer               | Integer               |  4                | set number of steps in the stepper               |
+| `getNumberOfSteps`                | integer               | --                    |  4                | return total number of steps in the stepper      |
+| `isLastStep`                      | Boalean               | --                    |  --               | return true if last step is selected else false  |
+| `isFirstStep`                     | Boalean               | --                    |  --               | return true if first step is selected else false |
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 # usage 
@@ -147,7 +151,7 @@ if number of elements are diffrent that number of steps you will get null as a r
 ```kotlin
        val stepper = findViewById<MoHorizontalStepper>(R.id.stepper)
        val navHostFragment = findViewById<FragmentContainerView>(R.id.frame_stepper)
-       val myMenu = = MenuBuilder(this)
+       val myMenu = MenuBuilder(this)
         menuInflater.inflate(R.menu.menu, myMenu)
         stepper.apply {
             setStepperMode(MoHorizontalStepper.MoStepperMode.SELECT_PREVIOUS_AND_CURRENT)

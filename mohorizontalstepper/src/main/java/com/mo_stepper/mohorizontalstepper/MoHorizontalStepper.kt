@@ -85,7 +85,6 @@ class MoHorizontalStepper @JvmOverloads constructor(
         typedArray.recycle()
         orientation = HORIZONTAL
         stepClickListener = { stepIndex ->
-            setCurrentStep(stepIndex)
         }
         initStepper()
     }
@@ -93,7 +92,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
     private fun initStepper() {
         for (i in 0 until numberOfSteps) {
             val stepView = createStepView(i + 1)
-                stepViews.add(stepView)
+            stepViews.add(stepView)
             Log.d("mohamed", "initStepper: 2 ")
             addView(stepView)
 
@@ -203,7 +202,9 @@ class MoHorizontalStepper @JvmOverloads constructor(
         }
     }
 
-    fun isLastStep(): Boolean = currentStepIndex == stepViews.size - 1
+    fun isLastStep(): Boolean = currentStepIndex == stepViews.size
+
+    fun isFirstStep(): Boolean = currentStepIndex == 1
 
     fun getFragmentByIndex(stepIndex: Int): Int? {
         return try {
@@ -213,6 +214,24 @@ class MoHorizontalStepper @JvmOverloads constructor(
         }
     }
 
+    fun getPreviousFragment(): Int? =
+        if (currentStepIndex == 1) {
+            null
+        } else {
+            menu?.getItem(currentStepIndex - 1)?.itemId
+        }
+
+
+    fun getNextFragment(): Int? =
+        if (currentStepIndex == stepViews.size) {
+            null
+        } else {
+            menu?.getItem(currentStepIndex + 1)?.itemId
+        }
+
+    fun getCurrentStepIndex(): Int {
+        return currentStepIndex
+    }
 
     /*
     methods for shaping and coloring
@@ -314,6 +333,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
         val txt = stepView.findViewById<TextView>(R.id.tv_number)
         txt.text = stepNumber.toString()
         stepView.setOnClickListener {
+            setCurrentStep(stepNumber)
             stepClickListener?.invoke(stepNumber)
         }
         return stepView
