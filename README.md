@@ -17,7 +17,7 @@ allprojects {
 
 ```gradle
 dependencies {
-	        implementation 'com.github.Mohamed02Emad:Mo_Horizonta_Stepper:1.0.5'
+	        implementation 'com.github.Mohamed02Emad:Mo_Horizonta_Stepper:1.1.0'
 	}
  ```
 
