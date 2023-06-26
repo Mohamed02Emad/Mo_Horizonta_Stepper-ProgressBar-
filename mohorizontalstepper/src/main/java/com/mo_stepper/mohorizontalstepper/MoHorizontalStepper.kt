@@ -25,6 +25,7 @@ class MoHorizontalStepper @JvmOverloads constructor(
     var stepClickListener: ((stepIndex: Int) -> Unit)? = null
     private var stepperMode: MoStepperMode = MoStepperMode.SELECT_CURRENT
     private var menu: Menu? = null
+    private var isClickable = true
 
     private var selectedTextColor: Int = 0
     private var selectedBackgroundColor: Int = 0
@@ -233,6 +234,13 @@ class MoHorizontalStepper @JvmOverloads constructor(
         return currentStepIndex
     }
 
+    fun setIsStepClickable(isClickable: Boolean) {
+        this.isClickable = isClickable
+    }
+
+     fun isStepClickable(): Boolean = isClickable
+
+
     /*
     methods for shaping and coloring
      */
@@ -333,8 +341,10 @@ class MoHorizontalStepper @JvmOverloads constructor(
         val txt = stepView.findViewById<TextView>(R.id.tv_number)
         txt.text = stepNumber.toString()
         stepView.setOnClickListener {
-            setCurrentStep(stepNumber)
-            stepClickListener?.invoke(stepNumber)
+            if (isClickable) {
+                setCurrentStep(stepNumber)
+                stepClickListener?.invoke(stepNumber)
+            }
         }
         return stepView
     }
